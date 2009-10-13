@@ -1,0 +1,15 @@
+README
+=======
+Myparish is an application that helps, maintain baptism and marriage certificates of a parish;
+
+
+Features planed:
+=================
+	1. Add/Remove/Modify/Print Birth certificates;
+	2. Add/remove/Modify/Print Marriage certificates; 
+	3. Search both Marriage and Birth certificates;
+	4. Interface to set global defautls like,Parish name,Pin and Parish priest name,etc.
+
+--
+Arun SAG
+sagarun [AT] gmail dot com
