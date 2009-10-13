@@ -42,13 +42,13 @@
             <property name="visible">True</property>
             <property name="layout_style">spread</property>
             <child>
-              <object class="GtkButton" id="window_button_birth">
-                <property name="label" translatable="yes">New Birth Certificate</property>
+              <object class="GtkButton" id="window_button_baptism">
+                <property name="label" translatable="yes">New Birth Baptism</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="tooltip_text" translatable="yes">Click here to create a new birth certificate.</property>
-                <signal name="clicked" handler="on_window_button_birth_clicked"/>
+                <signal name="clicked" handler="on_window_button_baptism_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -78,8 +78,8 @@
       </object>
     </child>
   </object>
-  <object class="GtkWindow" id="window_birth">
-    <property name="title" translatable="yes">Add Birth Certificate</property>
+  <object class="GtkWindow" id="window_baptism">
+    <property name="title" translatable="yes">Add Baptism Certificate</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
@@ -89,15 +89,15 @@
     <signal name="destroy" handler="gtk_main_quit"/>
     <signal name="delete_event" handler="gtk_main_quit"/>
     <child>
-      <object class="GtkVBox" id="window_birth_vbox1">
+      <object class="GtkVBox" id="window_baptism_vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox1">
+          <object class="GtkHBox" id="window_baptism_hbox1">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label1">
+              <object class="GtkLabel" id="window_baptism_label1">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Kept at:</property>
               </object>
@@ -106,7 +106,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_kept_at">
+              <object class="GtkEntry" id="window_baptism_kept_at">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="max_length">25</property>
@@ -122,11 +122,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox2">
+          <object class="GtkHBox" id="window_baptism_hbox2">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label2">
+              <object class="GtkLabel" id="window_baptism_label2">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Place of Baptism:</property>
               </object>
@@ -135,7 +135,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_place">
+              <object class="GtkEntry" id="window_baptism_place">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -150,20 +150,20 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox3">
+          <object class="GtkHBox" id="window_baptism_hbox3">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label3">
+              <object class="GtkLabel" id="window_baptism_label3">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Baptism:</property>
+                <property name="label" translatable="yes">Date of Baptism:(dd/mm/yyyy)</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_date">
+              <object class="GtkEntry" id="window_baptism_date">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -178,20 +178,20 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox4">
+          <object class="GtkHBox" id="window_baptism_hbox4">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label4">
+              <object class="GtkLabel" id="window_baptism_label4">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Nam of the child:</property>
+                <property name="label" translatable="yes">Name of the child:</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_name">
+              <object class="GtkEntry" id="window_baptism_name">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -206,20 +206,20 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox5">
+          <object class="GtkHBox" id="window_baptism_hbox5">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label5">
+              <object class="GtkLabel" id="window_baptism_label5">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Birth:</property>
+                <property name="label" translatable="yes">Date of Birth:(dd/mm/yyyy)</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_dob">
+              <object class="GtkEntry" id="window_baptism_dob">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -234,11 +234,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox6">
+          <object class="GtkHBox" id="window_baptism_hbox6">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label6">
+              <object class="GtkLabel" id="window_baptism_label6">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Sex:</property>
               </object>
@@ -247,7 +247,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkComboBox" id="window_birth_sex">
+              <object class="GtkComboBox" id="window_baptism_sex">
                 <property name="visible">True</property>
                 <property name="model">liststore1</property>
               </object>
@@ -261,11 +261,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox7">
+          <object class="GtkHBox" id="window_baptism_hbox7">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label7">
+              <object class="GtkLabel" id="window_baptism_label7">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Parents Name:</property>
               </object>
@@ -274,12 +274,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="vbox1">
+              <object class="GtkVBox" id="window_baptismvbox1">
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
-                <property name="homogeneous">True</property>
                 <child>
-                  <object class="GtkEntry" id="window_birth_dad">
+                  <object class="GtkEntry" id="window_baptism_dad">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">&#x25CF;</property>
@@ -289,7 +288,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="window_birth_mom">
+                  <object class="GtkEntry" id="window_baptism_mom">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">&#x25CF;</property>
@@ -309,11 +308,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox8">
+          <object class="GtkHBox" id="window_baptism_hbox8">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label8">
+              <object class="GtkLabel" id="window_baptism_label8">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Parents Residence:</property>
               </object>
@@ -322,7 +321,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_resi">
+              <object class="GtkEntry" id="window_baptism_resi">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -337,11 +336,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox9">
+          <object class="GtkHBox" id="window_baptism_hbox9">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label9">
+              <object class="GtkLabel" id="window_baptism_label9">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Caste:</property>
               </object>
@@ -350,7 +349,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_caste">
+              <object class="GtkEntry" id="window_baptism_caste">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -365,11 +364,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox10">
+          <object class="GtkHBox" id="window_baptism_hbox10">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label10">
+              <object class="GtkLabel" id="window_baptism_label10">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Sponsors:</property>
               </object>
@@ -378,11 +377,11 @@
               </packing>
             </child>
             <child>
-              <object class="GtkVBox" id="window_birth_vbox2">
+              <object class="GtkVBox" id="window_baptism_vbox2">
                 <property name="visible">True</property>
                 <property name="orientation">vertical</property>
                 <child>
-                  <object class="GtkEntry" id="window_birth_sp1">
+                  <object class="GtkEntry" id="window_baptism_sp1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">&#x25CF;</property>
@@ -392,7 +391,7 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="window_birth_sp2">
+                  <object class="GtkEntry" id="window_baptism_sp2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="invisible_char">&#x25CF;</property>
@@ -412,11 +411,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox11">
+          <object class="GtkHBox" id="window_baptism_hbox11">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label11">
+              <object class="GtkLabel" id="window_baptism_label11">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Priest who Baptised:</property>
               </object>
@@ -425,7 +424,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_priest">
+              <object class="GtkEntry" id="window_baptism_priest">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -440,11 +439,11 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="window_birth_hbox12">
+          <object class="GtkHBox" id="window_baptism_hbox12">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_birth_label12">
+              <object class="GtkLabel" id="window_baptism_label12">
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Remarks:</property>
               </object>
@@ -453,7 +452,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_birth_remarks">
+              <object class="GtkEntry" id="window_baptism_remarks">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
@@ -468,16 +467,16 @@
           </packing>
         </child>
         <child>
-          <object class="GtkHButtonBox" id="window_birth_hbuttonbox1">
+          <object class="GtkHButtonBox" id="window_baptism_hbuttonbox1">
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkButton" id="window_birth_add">
+              <object class="GtkButton" id="window_baptism_add">
                 <property name="label" translatable="yes">Add</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_window_birth_add_clicked"/>
+                <signal name="clicked" handler="on_window_baptism_add_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -486,12 +485,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="window_birth_clear">
+              <object class="GtkButton" id="window_baptism_clear">
                 <property name="label" translatable="yes">Clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_window_birth_clear_clicked"/>
+                <signal name="clicked" handler="on_window_baptism_clear_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -500,7 +499,7 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="window_birth_print">
+              <object class="GtkButton" id="window_baptism_print">
                 <property name="label" translatable="yes">Print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
@@ -513,12 +512,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="window_birth_quit">
+              <object class="GtkButton" id="window_baptism_quit">
                 <property name="label" translatable="yes">Quit</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="on_window_birth_quit_clicked"/>
+                <signal name="clicked" handler="on_window_baptism_quit_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
