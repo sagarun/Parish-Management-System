@@ -3,7 +3,7 @@
 int  sqlite_get_handle()
 {
 	int retval;
-	char query[600] = "create table if not exists baptism_cert(uid integer primary key autoincrement,kept_at text,place text,date_baptism date,name text,date_birth date,sex text,mom text,dad text,resi text,caste text,sponsor1 text,sponsor2 text,priest text,remarks text";
+	char query[] = "create table if not exists baptism_cert(uid integer primary key autoincrement,kept_at text,place text,date_baptism date,name text,date_birth date,sex text,mom text,dad text,resi text,caste text,sponsor1 text,sponsor2 text,priest text,remarks text)";
 
 	retval = sqlite3_open("parish.sqlite3",&handle);
 	if(retval)
@@ -14,7 +14,80 @@ int  sqlite_get_handle()
 	else
 	{
 		retval = sqlite3_exec(handle,query,0,0,0);
-		g_print("Return value after the query: %d",retval);
+		//g_print("Return value after the query: %d",retval);
+		return retval;
 	}
 	
+}
+
+void  prepare_baptism_cert_query(GString *query)
+{
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.kept_at);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.place);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.date_baptism);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.name);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.dob);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.sex);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.mom);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.dad);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.resi);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.caste);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.spon1);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.spon2);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.priest);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",",");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",cert.remarks);
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",")");  
+}
+
+int sqlite_store_baptism_cert()
+{
+  int retval;
+  GString *query;
+  query = g_string_new("insert into baptism_cert values(NULL,");
+  prepare_baptism_cert_query(query);
+  g_print(query->str);
+  retval = sqlite3_exec(handle,query->str,0,0,0);
+  g_string_free(query,TRUE);
+  return retval;
 }

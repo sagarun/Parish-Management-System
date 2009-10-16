@@ -138,6 +138,7 @@
               <object class="GtkEntry" id="window_baptism_place">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -166,6 +167,7 @@
               <object class="GtkEntry" id="window_baptism_date">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">10</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -194,6 +196,7 @@
               <object class="GtkEntry" id="window_baptism_name">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">35</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -222,6 +225,7 @@
               <object class="GtkEntry" id="window_baptism_dob">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">10</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -281,6 +285,7 @@
                   <object class="GtkEntry" id="window_baptism_dad">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
                   </object>
                   <packing>
@@ -291,6 +296,7 @@
                   <object class="GtkEntry" id="window_baptism_mom">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
                   </object>
                   <packing>
@@ -324,6 +330,7 @@
               <object class="GtkEntry" id="window_baptism_resi">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">40</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -352,6 +359,7 @@
               <object class="GtkEntry" id="window_baptism_caste">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -384,6 +392,7 @@
                   <object class="GtkEntry" id="window_baptism_sp1">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
                   </object>
                   <packing>
@@ -394,6 +403,7 @@
                   <object class="GtkEntry" id="window_baptism_sp2">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
+                    <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
                   </object>
                   <packing>
@@ -427,6 +437,7 @@
               <object class="GtkEntry" id="window_baptism_priest">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>
@@ -455,6 +466,7 @@
               <object class="GtkEntry" id="window_baptism_remarks">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
               </object>
               <packing>

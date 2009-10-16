@@ -42,3 +42,48 @@ void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data)
 		
 }
 
+void get_baptism_cert()
+{
+	GtkWidget *entry;
+	GtkWidget *cbox;
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_kept_at");
+	cert.kept_at = gtk_entry_get_text(GTK_ENTRY (entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_place");
+	cert.place = gtk_entry_get_text(GTK_ENTRY (entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_date");
+	cert.date_baptism = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_name");
+	cert.name = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob");
+	cert.dob = gtk_entry_get_text(GTK_ENTRY (entry));
+	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_sex");
+	cert.sex = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_mom");
+	cert.mom = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dad");
+	cert.dad = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_resi");
+	cert.resi = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_caste");
+	cert.caste  = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sp1");
+	cert.spon1 = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sp2");
+	cert.spon2 = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_priest");
+        cert.priest = gtk_entry_get_text(GTK_ENTRY(entry));
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_remarks");
+	cert.remarks = gtk_entry_get_text(GTK_ENTRY(entry));
+
+}
+
+
+void on_window_baptism_add_clicked(GtkButton *button,gpointer user_data)
+{
+  int retval;
+  get_baptism_cert();
+  retval = sqlite_store_baptism_cert();
+  g_print("Return value after insert query: %d",retval);
+
+}
+
