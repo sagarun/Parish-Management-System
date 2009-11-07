@@ -3,9 +3,16 @@
 int  sqlite_get_handle()
 {
 	int retval;
+	gchar *path;
+	gint size=0;
 	char query[] = "create table if not exists baptism_cert(uid integer primary key autoincrement,kept_at text,place text,date_baptism date,name text,date_birth date,sex text,mom text,dad text,resi text,caste text,sponsor1 text,sponsor2 text,priest text,remarks text)";
-
-	retval = sqlite3_open("parish.sqlite3",&handle);
+	size=strlen(g_getenv("HOME"));
+	size=size+24;
+	path=g_malloc(size);
+	g_strlcpy(path,g_getenv("HOME"),size);
+	g_strlcat(path,"/.parish/parish.sqlite3",size);
+	retval = sqlite3_open(path,&handle);
+	g_free(path);
 	if(retval)
 	{
 		g_print("something went wrong with the database,return value:%d", retval);	
