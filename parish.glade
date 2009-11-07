@@ -43,7 +43,7 @@
             <property name="layout_style">spread</property>
             <child>
               <object class="GtkButton" id="window_button_baptism">
-                <property name="label" translatable="yes">New Birth Baptism</property>
+                <property name="label" translatable="yes">New Baptism Certificate</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -111,6 +111,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_kept_at_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -140,6 +141,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_place_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -169,6 +171,8 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">10</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_date_insert_text"/>
+                <signal name="focus_out_event" handler="on_window_baptism_date_focus_out_event"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -198,6 +202,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">35</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -227,6 +232,8 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">10</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_dob_insert_text"/>
+                <signal name="focus_out_event" handler="on_window_baptism_dob_focus_out_event"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -287,6 +294,7 @@
                     <property name="can_focus">True</property>
                     <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_baptism_dad_insert_text"/>
                   </object>
                   <packing>
                     <property name="position">0</property>
@@ -298,6 +306,7 @@
                     <property name="can_focus">True</property>
                     <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_baptism_mom_insert_text"/>
                   </object>
                   <packing>
                     <property name="position">1</property>
@@ -332,6 +341,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">40</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_resi_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -361,6 +371,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_caste_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -394,6 +405,7 @@
                     <property name="can_focus">True</property>
                     <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_baptism_sp1_insert_text"/>
                   </object>
                   <packing>
                     <property name="position">0</property>
@@ -405,6 +417,7 @@
                     <property name="can_focus">True</property>
                     <property name="max_length">25</property>
                     <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_baptism_sp2_insert_text"/>
                   </object>
                   <packing>
                     <property name="position">1</property>
@@ -439,6 +452,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_priest_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -468,6 +482,7 @@
                 <property name="can_focus">True</property>
                 <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_baptism_remarks_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
