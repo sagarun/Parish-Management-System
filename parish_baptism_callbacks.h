@@ -1,29 +1,4 @@
-#include <gtk/gtk.h>
-#include <glib.h>
-#include <sqlite3.h>
-#include <string.h>
-GtkBuilder *build;
-sqlite3 *handle;
-
-struct baptism_cert
-{
-	gchar *kept_at;
-	gchar *place;
-	gchar *date_baptism;
-	gchar *name;
-	gchar *dob;
-	gchar *sex;
-	gchar *mom;
-	gchar *dad;
-	gchar *resi;
-	gchar *caste;
-	gchar *spon1;
-	gchar *spon2;
-	gchar *priest;
-	gchar *remarks;
-};
-
-struct baptism_cert cert;
+# include "parish_common.h"
 
 /*callbacks related to main window */
 void on_window_button_search_clicked(GtkButton *button,gpointer user_data);
@@ -53,8 +28,7 @@ gboolean on_window_baptism_date_focus_out_event(GtkWidget *widget,GdkEventFocus 
 /*utility functions*/
 
 void add_text_window_baptism_sex();
-void quick_message(gchar *);
-gboolean is_form_valid();
+
 
 /*Function related to sqlite database intefacing*/
 int sqlite_get_handle();
