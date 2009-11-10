@@ -5,6 +5,7 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window">
     <property name="title" translatable="yes">Manage your parish</property>
+    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_height">150</property>
@@ -14,9 +15,14 @@
       <object class="GtkVBox" id="window_vbox1">
         <property name="visible">True</property>
         <property name="orientation">vertical</property>
+        <property name="spacing">30</property>
+        <property name="homogeneous">True</property>
         <child>
           <object class="GtkHButtonBox" id="window_hbuttonbox1">
             <property name="visible">True</property>
+            <property name="spacing">10</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">center</property>
             <child>
               <object class="GtkButton" id="window_button_search">
                 <property name="label" translatable="yes">Search</property>
@@ -40,7 +46,9 @@
         <child>
           <object class="GtkHButtonBox" id="window_hbuttonbox2">
             <property name="visible">True</property>
-            <property name="layout_style">spread</property>
+            <property name="spacing">15</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">center</property>
             <child>
               <object class="GtkButton" id="window_button_baptism">
                 <property name="label" translatable="yes">New Baptism Certificate</property>
@@ -87,7 +95,7 @@
     <property name="default_height">750</property>
     <property name="destroy_with_parent">True</property>
     <signal name="destroy" handler="gtk_main_quit"/>
-    <signal name="delete_event" handler="gtk_main_quit"/>
+    <signal name="delete_event" handler="gtk_widget_hide"/>
     <child>
       <object class="GtkVBox" id="window_baptism_vbox1">
         <property name="visible">True</property>
@@ -159,20 +167,42 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label3">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Baptism:(dd/mm/yyyy)</property>
+                <property name="label" translatable="yes">Date of Baptism:</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_baptism_date">
+              <object class="GtkHBox" id="window_baptism_dobap_hbox">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="max_length">10</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_baptism_date_insert_text"/>
-                <signal name="focus_out_event" handler="on_window_baptism_date_focus_out_event"/>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dobap_date">
+                    <property name="visible">True</property>
+                    <property name="model">liststore3</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dobap_month">
+                    <property name="visible">True</property>
+                    <property name="model">liststore4</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dobap_year">
+                    <property name="visible">True</property>
+                    <property name="model">liststore5</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -220,20 +250,42 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label5">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Birth:(dd/mm/yyyy)</property>
+                <property name="label" translatable="yes">Date of Birth:</property>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="window_baptism_dob">
+              <object class="GtkHBox" id="window_baptism_hbox1_dob">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="max_length">10</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_baptism_dob_insert_text"/>
-                <signal name="focus_out_event" handler="on_window_baptism_dob_focus_out_event"/>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dob_date">
+                    <property name="visible">True</property>
+                    <property name="model">liststore3</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dob_month">
+                    <property name="visible">True</property>
+                    <property name="model">liststore4</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkComboBox" id="window_baptism_dob_year">
+                    <property name="visible">True</property>
+                    <property name="model">liststore5</property>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -594,6 +646,601 @@
       </row>
       <row>
         <col id="0" translatable="yes">Female</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkWindow" id="search_main">
+    <property name="title" translatable="yes">Search</property>
+    <property name="resizable">False</property>
+    <property name="modal">True</property>
+    <property name="default_height">98</property>
+    <property name="destroy_with_parent">True</property>
+    <signal name="destroy" handler="gtk_main_quit"/>
+    <signal name="delete_event" handler="gtk_widget_hide"/>
+    <child>
+      <object class="GtkVBox" id="search_main_vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkHBox" id="search_main_hbox1">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="search_main_label1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Search</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="search_main_query">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="seach_main_hbox3">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="search_main_label2">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Search By</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkComboBox" id="search_main_searchby_combobox">
+                <property name="visible">True</property>
+                <property name="model">liststore2</property>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="search_main_hbox2">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkRadioButton" id="search_main_radio1">
+                <property name="label" translatable="yes">Baptism</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="active">True</property>
+                <property name="draw_indicator">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkRadioButton" id="search_main_radio2">
+                <property name="label" translatable="yes">Marriage</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="draw_indicator">True</property>
+                <property name="group">search_main_radio1</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">2</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHButtonBox" id="search_main_hbuttonbox1">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">spread</property>
+            <child>
+              <object class="GtkButton" id="search_main_search_button">
+                <property name="label" translatable="yes">Search</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="search_main_cancel_button">
+                <property name="label" translatable="yes">Cancel</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_search_main_cancel_button_clicked"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkListStore" id="liststore2">
+    <columns>
+      <!-- column-name Searchtype -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">Name of the child</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Fathers Name</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Mothers Name</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Date Of Birth</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore3">
+    <columns>
+      <!-- column-name Date -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">3</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">4</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">5</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">6</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">7</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">8</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">9</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">10</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">11</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">12</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">13</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">14</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">15</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">16</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">17</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">18</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">19</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">20</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">21</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">22</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">23</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">24</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">25</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">26</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">27</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">28</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">29</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">30</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">31</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore4">
+    <columns>
+      <!-- column-name Month -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">2</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">3</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">4</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">5</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">6</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">7</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">8</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">9</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">10</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">11</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">12</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkListStore" id="liststore5">
+    <columns>
+      <!-- column-name Year -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0">1930</col>
+      </row>
+      <row>
+        <col id="0">1931</col>
+      </row>
+      <row>
+        <col id="0">1932</col>
+      </row>
+      <row>
+        <col id="0">1933</col>
+      </row>
+      <row>
+        <col id="0">1934</col>
+      </row>
+      <row>
+        <col id="0">1935</col>
+      </row>
+      <row>
+        <col id="0">1936</col>
+      </row>
+      <row>
+        <col id="0">1937</col>
+      </row>
+      <row>
+        <col id="0">1938</col>
+      </row>
+      <row>
+        <col id="0">1939</col>
+      </row>
+      <row>
+        <col id="0">1940</col>
+      </row>
+      <row>
+        <col id="0">1941</col>
+      </row>
+      <row>
+        <col id="0">1942</col>
+      </row>
+      <row>
+        <col id="0">1943</col>
+      </row>
+      <row>
+        <col id="0">1945</col>
+      </row>
+      <row>
+        <col id="0">1946</col>
+      </row>
+      <row>
+        <col id="0">1947</col>
+      </row>
+      <row>
+        <col id="0">1948</col>
+      </row>
+      <row>
+        <col id="0">1949</col>
+      </row>
+      <row>
+        <col id="0">1950</col>
+      </row>
+      <row>
+        <col id="0">1951</col>
+      </row>
+      <row>
+        <col id="0">1952</col>
+      </row>
+      <row>
+        <col id="0">1953</col>
+      </row>
+      <row>
+        <col id="0">1954</col>
+      </row>
+      <row>
+        <col id="0">1956</col>
+      </row>
+      <row>
+        <col id="0">1957</col>
+      </row>
+      <row>
+        <col id="0">1958</col>
+      </row>
+      <row>
+        <col id="0">1959</col>
+      </row>
+      <row>
+        <col id="0">1960</col>
+      </row>
+      <row>
+        <col id="0">1961</col>
+      </row>
+      <row>
+        <col id="0">1962</col>
+      </row>
+      <row>
+        <col id="0">1963</col>
+      </row>
+      <row>
+        <col id="0">1967</col>
+      </row>
+      <row>
+        <col id="0">1968</col>
+      </row>
+      <row>
+        <col id="0">1969</col>
+      </row>
+      <row>
+        <col id="0">1970</col>
+      </row>
+      <row>
+        <col id="0">1971</col>
+      </row>
+      <row>
+        <col id="0">1972</col>
+      </row>
+      <row>
+        <col id="0">1973</col>
+      </row>
+      <row>
+        <col id="0">1974</col>
+      </row>
+      <row>
+        <col id="0">1975</col>
+      </row>
+      <row>
+        <col id="0">1976</col>
+      </row>
+      <row>
+        <col id="0">1977</col>
+      </row>
+      <row>
+        <col id="0">1978</col>
+      </row>
+      <row>
+        <col id="0">1979</col>
+      </row>
+      <row>
+        <col id="0">1980</col>
+      </row>
+      <row>
+        <col id="0">1981</col>
+      </row>
+      <row>
+        <col id="0">1982</col>
+      </row>
+      <row>
+        <col id="0">1983</col>
+      </row>
+      <row>
+        <col id="0">1984</col>
+      </row>
+      <row>
+        <col id="0">1985</col>
+      </row>
+      <row>
+        <col id="0">1986</col>
+      </row>
+      <row>
+        <col id="0">1987</col>
+      </row>
+      <row>
+        <col id="0">1988</col>
+      </row>
+      <row>
+        <col id="0">1989</col>
+      </row>
+      <row>
+        <col id="0">1990</col>
+      </row>
+      <row>
+        <col id="0">1991</col>
+      </row>
+      <row>
+        <col id="0">1992</col>
+      </row>
+      <row>
+        <col id="0">1993</col>
+      </row>
+      <row>
+        <col id="0">1994</col>
+      </row>
+      <row>
+        <col id="0">1995</col>
+      </row>
+      <row>
+        <col id="0">1996</col>
+      </row>
+      <row>
+        <col id="0">1997</col>
+      </row>
+      <row>
+        <col id="0">1998</col>
+      </row>
+      <row>
+        <col id="0">1999</col>
+      </row>
+      <row>
+        <col id="0">2000</col>
+      </row>
+      <row>
+        <col id="0">2001</col>
+      </row>
+      <row>
+        <col id="0">2002</col>
+      </row>
+      <row>
+        <col id="0">2003</col>
+      </row>
+      <row>
+        <col id="0">2004</col>
+      </row>
+      <row>
+        <col id="0">2005</col>
+      </row>
+      <row>
+        <col id="0">2006</col>
+      </row>
+      <row>
+        <col id="0">2007</col>
+      </row>
+      <row>
+        <col id="0">2008</col>
+      </row>
+      <row>
+        <col id="0">2009</col>
+      </row>
+      <row>
+        <col id="0">2010</col>
+      </row>
+      <row>
+        <col id="0">2011</col>
+      </row>
+      <row>
+        <col id="0">2012</col>
+      </row>
+      <row>
+        <col id="0">2013</col>
+      </row>
+      <row>
+        <col id="0">2014</col>
+      </row>
+      <row>
+        <col id="0">2015</col>
+      </row>
+      <row>
+        <col id="0">2016</col>
+      </row>
+      <row>
+        <col id="0">2017</col>
+      </row>
+      <row>
+        <col id="0">2018</col>
+      </row>
+      <row>
+        <col id="0">2019</col>
+      </row>
+      <row>
+        <col id="0">2020</col>
+      </row>
+      <row>
+        <col id="0">2021</col>
+      </row>
+      <row>
+        <col id="0">2022</col>
+      </row>
+      <row>
+        <col id="0">2023</col>
+      </row>
+      <row>
+        <col id="0">2024</col>
+      </row>
+      <row>
+        <col id="0">2025</col>
+      </row>
+      <row>
+        <col id="0">2026</col>
       </row>
     </data>
   </object>

@@ -1,4 +1,26 @@
-#include "parish_baptism_callbacks.h"
+#include "parish_main.h"
+/*Callbacks related to main window*/
+void on_window_button_search_clicked(GtkButton *button,gpointer user_data)
+{
+  GtkWidget *widget;
+  widget=(GtkWidget *)(gtk_builder_get_object(build,"search_main"));
+  gtk_widget_show(widget);
+
+}
+
+void on_window_button_baptism_clicked(GtkButton *button,gpointer user_data)
+{
+	GtkWidget *window;
+	window=(GtkWidget *)(gtk_builder_get_object(build,"window_baptism"));
+	gtk_widget_show(window);
+}
+
+void on_window_button_marriage_clicked(GtkButton *button,gpointer user_data)
+{
+  
+  quick_message("Not yet Implemented");
+
+}
 
 int main(int argc,char *argv[])
 {
@@ -16,8 +38,8 @@ int main(int argc,char *argv[])
 	}
 	win = GTK_WIDGET(gtk_builder_get_object(build,"window"));
 	gtk_builder_connect_signals(build,NULL);
-	/*Add 'Male' and 'Female' option to combobox */
-	add_text_window_baptism_sex();
+	/*Add selectable  options to comboboxes */
+	add_text_combobox();
 	/*Create Sqlitedb get handle*/
 	sqlitestatus = sqlite_get_handle();
 	if(sqlitestatus == -1)

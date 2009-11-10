@@ -1,4 +1,4 @@
-#include "parish_common.h"
+#include "database.h"
 
 int  sqlite_get_handle()
 {
@@ -27,8 +27,11 @@ int  sqlite_get_handle()
 	
 }
 
-void  prepare_baptism_cert_query(GString *query)
+void  prepare_baptism_cert_query(GString *query,struct baptism_cert cert)
 {
+  gchar date_dob[10];
+  gchar date_dobap[10];
+  baptism_prepare_date(cert,&date_dob,&date_dobap);
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",cert.kept_at);
   g_string_append_printf(query,"%s","'");
@@ -38,7 +41,7 @@ void  prepare_baptism_cert_query(GString *query)
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",",");
   g_string_append_printf(query,"%s","'");
-  g_string_append_printf(query,"%s",cert.date_baptism);
+  g_string_append_printf(query,"%s",date_dobap);
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",",");
   g_string_append_printf(query,"%s","'");
@@ -46,7 +49,7 @@ void  prepare_baptism_cert_query(GString *query)
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",",");
   g_string_append_printf(query,"%s","'");
-  g_string_append_printf(query,"%s",cert.dob);
+  g_string_append_printf(query,"%s",date_dob);
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",",");
   g_string_append_printf(query,"%s","'");
@@ -87,12 +90,12 @@ void  prepare_baptism_cert_query(GString *query)
   g_string_append_printf(query,"%s",")");  
 }
 
-int sqlite_store_baptism_cert()
+int sqlite_store_baptism_cert(struct baptism_cert cert)
 {
   int retval;
   GString *query;
   query = g_string_new("insert into baptism_cert values(NULL,");
-  prepare_baptism_cert_query(query);
+  prepare_baptism_cert_query(query,cert);
   g_print(query->str);
   retval = sqlite3_exec(handle,query->str,0,0,0);
   g_string_free(query,TRUE);
