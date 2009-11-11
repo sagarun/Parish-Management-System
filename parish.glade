@@ -5,7 +5,6 @@
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window">
     <property name="title" translatable="yes">Manage your parish</property>
-    <property name="resizable">False</property>
     <property name="modal">True</property>
     <property name="window_position">center-always</property>
     <property name="default_height">150</property>
@@ -107,7 +106,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label1">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Kept at:</property>
+                <property name="label" translatable="yes">Kept at</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -137,7 +136,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label2">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Place of Baptism:</property>
+                <property name="label" translatable="yes">Place of Baptism</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -167,7 +166,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label3">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Baptism:</property>
+                <property name="label" translatable="yes">Date of Baptism</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -220,7 +219,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label4">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Name of the child:</property>
+                <property name="label" translatable="yes">Name of the child</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -250,7 +249,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label5">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Date of Birth:</property>
+                <property name="label" translatable="yes">Date of Birth</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -303,7 +302,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label6">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Sex:</property>
+                <property name="label" translatable="yes">Sex</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -328,9 +327,27 @@
             <property name="visible">True</property>
             <property name="homogeneous">True</property>
             <child>
-              <object class="GtkLabel" id="window_baptism_label7">
+              <object class="GtkVBox" id="window_baptism_vbox_parents">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Parents Name:</property>
+                <property name="orientation">vertical</property>
+                <child>
+                  <object class="GtkLabel" id="window_baptism_lable_mom">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Mothers Name</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkLabel" id="window_baptism_label_dad">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Fathers Name</property>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -381,7 +398,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label8">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Parents Residence:</property>
+                <property name="label" translatable="yes">Parents Residence</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -411,7 +428,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label9">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Caste:</property>
+                <property name="label" translatable="yes">Caste</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -441,7 +458,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label10">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Sponsors:</property>
+                <property name="label" translatable="yes">Sponsors</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -492,7 +509,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label11">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Priest who Baptised:</property>
+                <property name="label" translatable="yes">Priest who Baptised</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -522,7 +539,7 @@
             <child>
               <object class="GtkLabel" id="window_baptism_label12">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Remarks:</property>
+                <property name="label" translatable="yes">Remarks</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -592,7 +609,7 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_quit">
-                <property name="label" translatable="yes">Quit</property>
+                <property name="label" translatable="yes">Close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -653,6 +670,7 @@
     <property name="title" translatable="yes">Search</property>
     <property name="resizable">False</property>
     <property name="modal">True</property>
+    <property name="window_position">center-always</property>
     <property name="default_height">98</property>
     <property name="destroy_with_parent">True</property>
     <signal name="destroy" handler="gtk_main_quit"/>
@@ -678,7 +696,9 @@
               <object class="GtkEntry" id="search_main_query">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">25</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_search_main_query_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -766,6 +786,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_search_main_search_button_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1243,5 +1264,84 @@
         <col id="0">2026</col>
       </row>
     </data>
+  </object>
+  <object class="GtkWindow" id="search_results">
+    <child>
+      <object class="GtkVBox" id="search_ results_vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <child>
+          <object class="GtkTextView" id="search_results_text">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="editable">False</property>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHButtonBox" id="search_results_hbuttonbox1">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkButton" id="search_results_print">
+                <property name="label" translatable="yes">Print</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="search_results_prev">
+                <property name="label" translatable="yes">Previous</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="search_results_next">
+                <property name="label" translatable="yes">Next</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="search_results_close">
+                <property name="label" translatable="yes">Close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
 </interface>
