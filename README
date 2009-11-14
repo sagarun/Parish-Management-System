@@ -10,6 +10,18 @@ Features planed:
 	3. Search both Marriage and Birth certificates;
 	4. Interface to set global defautls like,Parish name,Pin and Parish priest name,etc.
 
+Compiling:
+==========
+You may need gtk+ and sqlite development headers to compile this application.
+
+To compile the code navigate inside the directory parish_management_system  in terminal and execute the following command:
+   'make'
+
+Running the application:
+========================
+After compiling the code run the application using the following command:
+    './parish'
+
 --
 Arun SAG
 sagarun [AT] gmail dot com
