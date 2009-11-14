@@ -18,3 +18,5 @@ void on_search_main_cancel_button_clicked(GtkButton *widget,gpointer user_data);
 void on_search_main_query_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data);
 void on_search_main_search_button_clicked(GtkButton *button,gpointer user_data);
 gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index);
+void on_search_main_radio2_clicked(GtkButton *button,gpointer user_data);
+void on_search_main_radio1_clicked(GtkButton *button,gpointer user_data);

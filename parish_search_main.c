@@ -99,3 +99,26 @@ gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index)
   
 
 }
+
+void on_search_main_radio2_clicked(GtkButton *button,gpointer user_data)
+{
+
+  GtkListStore *store;
+  GtkComboBox *cbox;
+  store = GTK_LIST_STORE(gtk_builder_get_object(build,"liststore6"));
+  cbox = (GtkComboBox *)gtk_builder_get_object(build,"search_main_searchby_combobox");
+  gtk_combo_box_set_model(cbox,GTK_TREE_MODEL(store));
+  
+  
+}
+
+void on_search_main_radio1_clicked(GtkButton *button,gpointer user_data)
+{
+
+  GtkListStore *store;
+  GtkComboBox *cbox;
+  store = GTK_LIST_STORE(gtk_builder_get_object(build,"liststore2"));
+  cbox = (GtkComboBox *)gtk_builder_get_object(build,"search_main_searchby_combobox");
+  gtk_combo_box_set_model(cbox,GTK_TREE_MODEL(store));
+
+}

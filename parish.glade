@@ -748,6 +748,7 @@
                 <property name="receives_default">False</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
+                <signal name="clicked" handler="on_search_main_radio1_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1295,6 +1296,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_search_results_print_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1351,5 +1353,19 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="liststore6">
+    <columns>
+      <!-- column-name Options -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">option1</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">option2</col>
+      </row>
+    </data>
   </object>
 </interface>
