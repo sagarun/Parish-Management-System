@@ -13,5 +13,8 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
-#include "parish_common.h"
+#include "database.h"
 void on_search_main_cancel_button_clicked(GtkButton *widget,gpointer user_data);
+void on_search_main_query_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data);
+void on_search_main_search_button_clicked(GtkButton *button,gpointer user_data);
+gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index);

@@ -117,3 +117,29 @@ int sqlite_store_baptism_cert(struct baptism_cert cert)
   g_string_free(query,TRUE);
   return retval;
 }
+
+void do_search(gchar *querystring,gchar *searchby,gchar *table)
+{
+  GString *query;
+  int retval =0;
+  query = g_string_new("select * from");
+  g_string_append_printf(query," %s","");
+  g_string_append_printf(query,"%s",table);
+  g_string_append_printf(query," %s","");
+  g_string_append_printf(query,"%s","where");
+  g_string_append_printf(query," %s","");
+  g_string_append_printf(query,"%s",searchby);
+  g_string_append_printf(query," %s","");
+  g_string_append_printf(query,"%s","like");
+  g_string_append_printf(query," %s","");
+  g_string_append_printf(query,"%s","'");
+  g_string_append_printf(query,"%s",querystring);
+  g_string_append_printf(query,"%s","'");
+  g_print(query->str);
+  retval = sqlite3_prepare_v2(handle,query->str,-1,&stmt,0);
+  if(retval)
+    {
+      g_print("something went wrong");
+    }
+  g_string_free(query,TRUE);
+}

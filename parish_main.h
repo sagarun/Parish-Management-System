@@ -13,9 +13,12 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
+#ifndef PARISH_MAIN
+#define PARISH_MAIN
 #include "parish_baptism_callbacks.h"
-
+#include "parish_search_main.h"
 /*callbacks related to main window */
 void on_window_button_search_clicked(GtkButton *button,gpointer user_data);
 void on_window_button_baptism_clicked(GtkButton *button,gpointer user_data);
 void on_window_button_marriage_clicked(GtkButton *button,gpointer user_data);
+#endif

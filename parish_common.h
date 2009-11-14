@@ -22,6 +22,7 @@
 
 GtkBuilder *build;
 sqlite3 *handle;
+sqlite3_stmt *stmt;
 
 struct baptism_cert
 {
@@ -50,4 +51,7 @@ void quick_message(gchar *);
 gboolean is_form_valid(struct baptism_cert *cert);
 void add_text_combobox();
 void baptism_prepare_date(struct baptism_cert cert,gchar *date_dob,gchar *date_dobap);
+void prepare_results(GString *result,int cols);
+void get_column_name(int i,gchar *col_name);
+
 #endif

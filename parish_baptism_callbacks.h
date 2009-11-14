@@ -14,6 +14,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>. */
 
 # include "database.h"
+# include "parish_common.h"
 /*callbacks related to (window_baptism) baptism certificate entry*/
 void on_window_baptism_quit_clicked(GtkButton *button,gpointer user_data);
 void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data);

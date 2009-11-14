@@ -763,6 +763,7 @@
                 <property name="receives_default">False</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">search_main_radio1</property>
+                <signal name="clicked" handler="on_search_main_radio2_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1266,6 +1267,11 @@
     </data>
   </object>
   <object class="GtkWindow" id="search_results">
+    <property name="title" translatable="yes">Search results</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-always</property>
+    <signal name="destroy" handler="gtk_main_quit"/>
+    <signal name="delete_event" handler="gtk_widget_hide"/>
     <child>
       <object class="GtkVBox" id="search_ results_vbox1">
         <property name="visible">True</property>
@@ -1315,6 +1321,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_search_results_next_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1328,6 +1335,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <signal name="clicked" handler="on_search_results_close_clicked"/>
               </object>
               <packing>
                 <property name="expand">False</property>

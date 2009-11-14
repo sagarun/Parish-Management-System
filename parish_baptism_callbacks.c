@@ -140,7 +140,7 @@ void on_window_baptism_remarks_insert_text(GtkEditable *editable,gchar *new_text
 void on_window_baptism_kept_at_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -247,7 +247,7 @@ void on_window_baptism_resi_insert_text(GtkEditable *editable,gchar *new_text,gi
 
 }
 
-/*The code below is obsolete,as the date handling is changed entirely*/
+/* The code below is obsolete,as the date handling was changed entirely */
 
 /*void on_window_baptism_dob_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
@@ -262,7 +262,7 @@ void on_window_baptism_date_insert_text(GtkEditable *editable,gchar *new_text,gi
 	{
 		g_signal_stop_emission_by_name(editable,"insert-text");
 	}
-}
+x}
 
 gboolean on_window_baptism_dob_focus_out_event(GtkWidget *widget,GdkEventFocus *event,gpointer user_data)
 {

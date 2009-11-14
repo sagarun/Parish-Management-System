@@ -87,6 +87,7 @@ gboolean is_form_valid(struct baptism_cert *cert)
     {
       return FALSE;
     }
+  else
   return TRUE;
   
 }
@@ -167,4 +168,90 @@ void baptism_prepare_date(struct baptism_cert cert,gchar *date_dob,gchar *date_d
   g_strlcat(date_dobap,"/",10);
   g_strlcat(date_dobap,cert.dobap_year,10);
 
+}
+
+/* Creates displayable search results*/
+void prepare_results(GString *result,int cols)
+{
+  int retval,i;
+  retval = sqlite3_step(stmt);
+  gchar col_name[25];
+  gchar col_name_db[25];
+  if(retval == SQLITE_ROW)
+    {
+      //g_string_append_printf(result,"%s","*******************************************");
+      //g_string_append_printf(result,"%s\n","*******************************************");
+
+      /* i starts from 1 as uid is in first column of the table*/
+      for(i=1;i<cols;i++)
+	{
+	  g_strlcpy(col_name_db,sqlite3_column_name(stmt,i),25);
+	  g_string_append_printf(result,"\n%s","------------------------------------------");
+	  g_string_append_printf(result,"%s","------------------------------------------");
+	  get_column_name(i,col_name);  
+	  g_string_append_printf(result,"\n\t\t\t%s",col_name);
+	  g_string_append_printf(result,"\t\t\t\t\t\t%s","");
+	  g_string_append_printf(result,"%s",(gchar *)sqlite3_column_text(stmt,i));
+
+	}
+      //g_string_append_printf(result,"\n%s","*******************************************");
+      //g_string_append_printf(result,"%s\n","*******************************************");
+
+    }
+  else
+    {
+      g_string_append_printf(result,"%s","End of search");
+    }
+}
+
+
+/* Creates printable column name*/
+void get_column_name(int i,gchar *col_name)
+{
+  
+  switch(i)
+    {	    
+     case 1:  
+              g_strlcpy(col_name,"Kept At      ",25);
+              break;
+     case 2:
+	      g_strlcpy(col_name,"Place        ",25);
+	      break;
+     case 3:
+	      g_strlcpy(col_name,"Date         ",25);
+	      break;
+     case 4: 
+	      g_strlcpy(col_name,"Name         ",25);
+	      break;
+     case 5:
+	      g_strlcpy(col_name,"Date of birth",25);
+	      break;
+     case 6:
+	      g_strlcpy(col_name,"Sex          ",25);
+	      break;
+     case 7:
+	      g_strlcpy(col_name,"Mother's Name",25);
+	      break;
+     case 8:
+	      g_strlcpy(col_name,"Father's Name",25);
+	      break;
+     case 9:
+	      g_strlcpy(col_name,"Residence    ",25);
+	      break;
+     case 10:
+	      g_strlcpy(col_name,"Caste        ",25);
+	      break;
+     case 11:
+	      g_strlcpy(col_name,"Sponsor 1    ",25);
+	      break;
+     case 12:
+	      g_strlcpy(col_name,"Sponsor 2    ",25);
+	      break;
+     case 13:
+	      g_strlcpy(col_name,"Priest       ",25);
+	      break;
+     case 14:
+	      g_strlcpy(col_name,"Remarks      ",25);
+	      break;
+    }
 }

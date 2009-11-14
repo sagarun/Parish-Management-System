@@ -22,3 +22,80 @@ void on_search_main_cancel_button_clicked(GtkButton *button,gpointer user_data)
   gtk_widget_hide(widget);
 
 }
+
+void on_search_main_query_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
+{
+  if(!g_regex_match_simple("[a-zA-Z0-9 \s / .]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+}
+
+void on_search_main_search_button_clicked(GtkButton *button,gpointer user_data)
+{
+  GtkWidget *widget,*view;
+  GString *result;
+  GtkTextBuffer *textbuf;
+  gchar querystring[30];
+  gchar *searchby[] = {"name","dad","mom","date_birth"};
+  gchar *table[] = {"baptism_cert","marriage_cert"};
+  int radio=0;
+  int cbox_index=-1;
+  int cols;
+  result=g_string_new("");
+  if( !is_valid_search(querystring,&cbox_index,&radio))
+    {
+      return;
+    } 
+  //Fixme: For now assuming every query goes on baptism_cert table
+  do_search(querystring,searchby[cbox_index],table[radio]);
+  widget = (GtkWidget *) gtk_builder_get_object(build,"search_main");
+  gtk_widget_hide(widget);
+  cols = sqlite3_column_count(stmt);
+  prepare_results(result,cols);
+  view = (GtkWidget *)gtk_builder_get_object(build,"search_results_text");
+  textbuf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
+  gtk_text_buffer_set_text(textbuf,result->str,-1);
+  widget = (GtkWidget *)gtk_builder_get_object(build,"search_results");
+  gtk_widget_show(widget);
+  
+}
+
+
+gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index)
+{
+  GtkWidget *widget;
+  GtkComboBox *cbox;
+  widget = (GtkWidget *) gtk_builder_get_object(build,"search_main_query");
+  g_strlcpy(querystring,gtk_entry_get_text(GTK_ENTRY(widget)),30);
+  if(g_strcmp0(querystring,"") == 0)
+    {
+      quick_message("please enter a phrase to search");
+      return FALSE;
+    }
+  
+  cbox = (GtkComboBox *) gtk_builder_get_object(build,"search_main_searchby_combobox");
+  *cbox_index  = gtk_combo_box_get_active(cbox);
+  if(*cbox_index == -1)
+    {
+      quick_message("please select one filed to search with");
+      return FALSE;
+    }
+  if(*cbox_index == 3)
+    {
+      /*The user input must be a date so validate it*/
+      
+      	if(!g_regex_match_simple("^[0-9]{1,2}[/][0-9]{1,2}[/][0-9]{4}$",querystring,0,0))
+	{
+		quick_message("Invalid Date entry to search");
+		return FALSE;
+	}	
+    }
+
+  //Fixme: Need to find a way to get radio buttons
+  *index = 0;
+  return TRUE;
+  
+  
+
+}
