@@ -27,15 +27,15 @@ gboolean is_form_valid(struct baptism_cert *cert)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dobap_date,"")==0)
+  else if(cert->dobap_date == NULL)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dobap_month,"")==0)
+  else if(cert->dobap_month== NULL)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dobap_year,"")==0)
+  else if(cert->dobap_year == NULL)
     {
       return FALSE;
     }
@@ -43,15 +43,19 @@ gboolean is_form_valid(struct baptism_cert *cert)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dob_date,"")==0)
+  else if(cert->dob_date == NULL)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dob_month,"")==0)
+  else if(cert->dob_month == NULL)
     {
       return FALSE;
     }
-  else if(g_strcmp0(cert->dob_year,"")==0)
+  else if(cert->dob_year == NULL)
+    {
+      return FALSE;
+    }
+  else if(cert->sex == NULL)
     {
       return FALSE;
     }

@@ -28,6 +28,10 @@ void on_window_baptism_quit_clicked(GtkButton *button,gpointer user_data)
 
 void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data)
 {
+	clear_baptism_records();
+}
+void clear_baptism_records()
+{
   	GtkWidget *entry;
 	GtkWidget *cbox;
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_kept_at");
@@ -81,19 +85,65 @@ void get_baptism_cert(struct baptism_cert *cert)
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_name");
 	cert->name = gtk_entry_get_text(GTK_ENTRY(entry));
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_date");
-	cert->dob_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dob_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+
+	}
+	else
+		cert->dob_date =NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_month");
-	cert->dob_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dob_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+
+	}
+	else
+		cert->dob_month=NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_year");
-	cert->dob_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));	
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dob_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));	
+
+	}
+	else
+		cert->dob_year=NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_date");
-	cert->dobap_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dobap_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+
+	}
+	else
+		cert->dobap_date = NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_month");
-	cert->dobap_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dobap_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+
+	}
+	else
+		cert->dobap_month = NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_year");
-	cert->dobap_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->dobap_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	}
+	else
+		cert->dobap_year = NULL;
+
 	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_sex");
-	cert->sex = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
+	{
+		cert->sex = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	}
+	else
+		cert->sex = NULL;
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_mom");
 	cert->mom = gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dad");
@@ -125,6 +175,12 @@ void on_window_baptism_add_clicked(GtkButton *button,gpointer user_data)
       return;
     }
   retval = sqlite_store_baptism_cert(cert);
+  if(retval == 0)
+	{
+		quick_message("Record added successfully");
+		clear_baptism_records();
+	}
+		
 }
 
 void on_window_baptism_remarks_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
