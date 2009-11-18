@@ -21,4 +21,5 @@
 void on_window_button_search_clicked(GtkButton *button,gpointer user_data);
 void on_window_button_baptism_clicked(GtkButton *button,gpointer user_data);
 void on_window_button_marriage_clicked(GtkButton *button,gpointer user_data);
+void on_menu_item_about_activate(GtkMenuItem *item,gpointer user_data);
 #endif

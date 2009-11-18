@@ -68,3 +68,12 @@ int main(int argc,char *argv[])
 	g_object_unref(G_OBJECT(build));
 	return 0;
 }
+
+void on_menu_item_about_activate(GtkMenuItem *item,gpointer user_data)
+{
+  GtkWidget *widget;
+  widget = (GtkWidget *)gtk_builder_get_object(build,"parish_about");
+  gtk_about_dialog_set_wrap_license((GtkAboutDialog *)widget,TRUE);
+  gtk_widget_show(widget);
+
+}

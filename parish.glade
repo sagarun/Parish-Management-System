@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <interface>
-  <requires lib="gtk+" version="2.14"/>
+  <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window">
     <property name="title" translatable="yes">Manage your parish</property>
@@ -15,6 +15,83 @@
         <property name="orientation">vertical</property>
         <property name="spacing">30</property>
         <property name="homogeneous">True</property>
+        <child>
+          <object class="GtkMenuBar" id="menubar1">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkMenuItem" id="menuitem1">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_File</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu1">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkSeparatorMenuItem" id="separatormenuitem1">
+                        <property name="visible">True</property>
+                      </object>
+                    </child>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menu_item_quit">
+                        <property name="label">gtk-quit</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="gtk_main_quit"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="menuitem2">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Edit</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu2">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menu_item_preferences">
+                        <property name="label">gtk-preferences</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+            <child>
+              <object class="GtkMenuItem" id="menuitem4">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">_Help</property>
+                <property name="use_underline">True</property>
+                <child type="submenu">
+                  <object class="GtkMenu" id="menu3">
+                    <property name="visible">True</property>
+                    <child>
+                      <object class="GtkImageMenuItem" id="menu_item_about">
+                        <property name="label">gtk-about</property>
+                        <property name="visible">True</property>
+                        <property name="use_underline">True</property>
+                        <property name="use_stock">True</property>
+                        <signal name="activate" handler="on_menu_item_about_activate"/>
+                      </object>
+                    </child>
+                  </object>
+                </child>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
         <child>
           <object class="GtkHButtonBox" id="window_hbuttonbox1">
             <property name="visible">True</property>
@@ -38,7 +115,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">0</property>
+            <property name="position">1</property>
           </packing>
         </child>
         <child>
@@ -78,7 +155,7 @@
             </child>
           </object>
           <packing>
-            <property name="position">1</property>
+            <property name="position">2</property>
           </packing>
         </child>
       </object>
@@ -567,10 +644,11 @@
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="window_baptism_add">
-                <property name="label" translatable="yes">Add</property>
+                <property name="label" translatable="yes">gtk-add</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_window_baptism_add_clicked"/>
               </object>
               <packing>
@@ -581,10 +659,11 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_clear">
-                <property name="label" translatable="yes">Clear</property>
+                <property name="label" translatable="yes">gtk-clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_window_baptism_clear_clicked"/>
               </object>
               <packing>
@@ -595,10 +674,11 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_print">
-                <property name="label" translatable="yes">Print</property>
+                <property name="label" translatable="yes">gtk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -608,10 +688,11 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_quit">
-                <property name="label" translatable="yes">Close</property>
+                <property name="label" translatable="yes">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_window_baptism_quit_clicked"/>
               </object>
               <packing>
@@ -1271,10 +1352,11 @@
             <property name="visible">True</property>
             <child>
               <object class="GtkButton" id="search_results_print">
-                <property name="label" translatable="yes">Print</property>
+                <property name="label" translatable="yes">gtk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_search_results_print_clicked"/>
               </object>
               <packing>
@@ -1285,10 +1367,11 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_prev">
-                <property name="label" translatable="yes">Previous</property>
+                <property name="label" translatable="yes">gtk-go-back</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -1298,10 +1381,11 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_next">
-                <property name="label" translatable="yes">Next</property>
+                <property name="label" translatable="yes">gtk-go-forward</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_search_results_next_clicked"/>
               </object>
               <packing>
@@ -1312,10 +1396,11 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_close">
-                <property name="label" translatable="yes">Close</property>
+                <property name="label" translatable="yes">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="use_stock">True</property>
                 <signal name="clicked" handler="on_search_results_close_clicked"/>
               </object>
               <packing>
@@ -1346,5 +1431,53 @@
         <col id="0" translatable="yes">option2</col>
       </row>
     </data>
+  </object>
+  <object class="GtkAboutDialog" id="parish_about">
+    <property name="border_width">5</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="default_width">340</property>
+    <property name="default_height">120</property>
+    <property name="destroy_with_parent">True</property>
+    <property name="type_hint">normal</property>
+    <property name="program_name">MyParish</property>
+    <property name="version">0.1</property>
+    <property name="copyright" translatable="yes">Distributed under GPL 3.0	</property>
+    <property name="comments" translatable="yes">Helps Manage your parish</property>
+    <property name="license" translatable="yes">This program is free software: you can redistribute 
+it and/or modify it under the terms of the GNU General 
+Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later 
+version. This program is distributed in the hope that it will be 
+useful, but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.You should have received a 
+copy of the GNU General Public License along with this program.If not
+,see &lt;http://www.gnu.org/licenses/&gt;.</property>
+    <property name="authors">Arun S.A.G &lt;sagarun at gmail dot com&gt;</property>
+    <signal name="destroy" handler="gtk_main_quit"/>
+    <signal name="close" handler="gtk_widget_hide"/>
+    <signal name="delete_event" handler="gtk_widget_hide"/>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
   </object>
 </interface>
