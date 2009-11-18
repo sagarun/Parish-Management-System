@@ -4,10 +4,10 @@ SQLITEDB = parish.sqlite3
 PROG_NAME = parish
 FLAGS = `pkg-config --cflags --libs gtk+-2.0` -export-dynamic
 
-install : common.o  database.o  callback.o search_main.o search_results.o ${PROG_NAME}.o
+install : common.o  database.o  callback.o search_main.o search_results.o parish_print.o ${PROG_NAME}.o
 	echo "Creating config directory"
 	${MKDIR} ~/.${PROG_NAME}
-	${CC} -Wall  -o ${PROG_NAME} common.o search_main.o baptism_callback.o ${PROG_NAME}.o search_results.o database.o -l sqlite3 ${FLAGS}
+	${CC} -Wall  -o ${PROG_NAME} common.o search_main.o baptism_callback.o ${PROG_NAME}.o parish_print.o search_results.o  database.o -l sqlite3 ${FLAGS}
 
 common.o :
 		${CC} -Wall  -c -o common.o ${PROG_NAME}_common.c ${FLAGS}
@@ -22,7 +22,10 @@ search_main.o :
 		${CC} -Wall -c -o search_main.o parish_search_main.c ${FLAGS}
 
 search_results.o :
-			${CC} -Wall -c -o search_results.o parish_search_results.c ${FLAGS}
+		${CC} -Wall -c -o search_results.o parish_search_results.c ${FLAGS}
+
+parish_print.o :
+		${CC} -Wall -c -o parish_print.o parish_print.c ${FLAGS}
 
 
 ${PROG_NAME}.o :

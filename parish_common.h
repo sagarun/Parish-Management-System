@@ -19,6 +19,7 @@
 #include <glib.h>
 #include <sqlite3.h>
 #include <string.h>
+#include <math.h>
 
 GtkBuilder *build;
 sqlite3 *handle;

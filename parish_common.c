@@ -194,7 +194,7 @@ void prepare_results(GString *result,int cols)
 	  g_string_append_printf(result,"%s","------------------------------------------");
 	  get_column_name(i,col_name);  
 	  g_string_append_printf(result,"\n\t\t\t%s",col_name);
-	  g_string_append_printf(result,"\t\t\t\t\t\t%s","");
+	  g_string_append_printf(result,"\t\t\t%s","");
 	  g_string_append_printf(result,"%s",(gchar *)sqlite3_column_text(stmt,i));
 
 	}
