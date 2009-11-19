@@ -34,7 +34,9 @@ void on_window_button_baptism_clicked(GtkButton *button,gpointer user_data)
 void on_window_button_marriage_clicked(GtkButton *button,gpointer user_data)
 {
   
-  quick_message("Not yet Implemented");
+  GtkWidget *widget;
+  widget = (GtkWidget *) gtk_builder_get_object(build,"window_marriage");
+  gtk_widget_show(widget);
 
 }
 

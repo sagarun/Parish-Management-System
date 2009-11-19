@@ -155,6 +155,43 @@ void add_text_combobox()
 	cell = gtk_cell_renderer_text_new();
 	gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
 	gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_date"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_month"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_year"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_bride_dob_date"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_bride_dob_month"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_bride_dob_year"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_groom_dob_date"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_groom_dob_month"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+        cbox = (GtkComboBox *)(gtk_builder_get_object(build,"window_marriage_groom_dob_year"));
+        cell = gtk_cell_renderer_text_new();
+        gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(cbox),cell,TRUE);
+        gtk_cell_layout_add_attribute(GTK_CELL_LAYOUT(cbox),cell,"text",0);
+
 }
 
 /*Prepates date information to store it in db*/
