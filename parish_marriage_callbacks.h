@@ -16,3 +16,8 @@
 #include "parish_common.h"
 #include "database.h"
 void on_window_marriage_close_clicked(GtkButton *button,gpointer user_data);
+void on_window_marriage_clear_clicked(GtkButton *button,gpointer user_data);
+
+
+
+void clear_marriage_records();
