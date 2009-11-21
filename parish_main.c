@@ -52,7 +52,7 @@ int main(int argc,char *argv[])
 	{
 		g_print("Failed to load the userinterface: %s",error->message);
 		g_error_free(error);
-		exit(0);
+		return 0;
 	}
 	win = GTK_WIDGET(gtk_builder_get_object(build,"window"));
 	gtk_builder_connect_signals(build,NULL);

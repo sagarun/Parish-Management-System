@@ -1159,6 +1159,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1169,6 +1170,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1289,6 +1291,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_cond_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1299,6 +1302,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_cond_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1328,6 +1332,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_rank_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1338,6 +1343,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_rank_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1367,6 +1373,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_father_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1377,6 +1384,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_father_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1406,6 +1414,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_address_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1416,6 +1425,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_address_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1445,6 +1455,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_wit_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1455,6 +1466,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_wit_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1484,6 +1496,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_wit_addr_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
@@ -1494,6 +1507,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_wit_addr_insert_text"/>
               </object>
               <packing>
                 <property name="position">2</property>
@@ -1524,6 +1538,7 @@ copy of the GNU General Public License along with this program.If not
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_minister_name_insert_text"/>
               </object>
               <packing>
                 <property name="position">1</property>
