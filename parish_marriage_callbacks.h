@@ -66,3 +66,16 @@ void on_window_marriage_groom_wit_name_insert_text(GtkEditable *editable,gchar *
 void on_window_marriage_bride_wit_addr_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
 void on_window_marriage_groom_wit_addr_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
 void on_window_marriage_minister_name_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_wit_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_wit_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_wit_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_wit_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_wit_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_bride_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+void on_window_marriage_groom_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);

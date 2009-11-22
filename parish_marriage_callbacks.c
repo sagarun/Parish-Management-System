@@ -83,6 +83,30 @@ void clear_marriage_records()
 	gtk_entry_set_text(GTK_ENTRY(entry),"");
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_minister_name");
 	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_villi");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_villi");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_dist");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_dist");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_pin");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_pin");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_villi");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_villi");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_dist");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_dist");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_pin");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
+	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_pin");
+	gtk_entry_set_text(GTK_ENTRY(entry),"");
 		
 }
 
@@ -234,5 +258,114 @@ void on_window_marriage_minister_name_insert_text(GtkEditable *editable,gchar *n
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
+
+}
+
+void on_window_marriage_bride_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+    if(!g_regex_match_simple("[a-zA-Z0-9 ,]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z0-9 ,]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_bride_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_bride_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[0-9]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[0-9]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+}
+
+void on_window_marriage_bride_wit_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z0-9 ,]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_wit_villi_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z0-9 ,]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+
+}
+void on_window_marriage_bride_wit_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_wit_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[a-zA-Z]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+}
+void on_window_marriage_bride_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[0-9]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
+}
+void on_window_marriage_groom_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data)
+{
+
+    if(!g_regex_match_simple("[0-9]+",new_text,0,0))
+    {
+      g_signal_stop_emission_by_name (editable,"insert-text");
+    }
+
 
 }

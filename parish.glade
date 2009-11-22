@@ -1061,7 +1061,7 @@ copy of the GNU General Public License along with this program.If not
     <child>
       <object class="GtkTable" id="window_marriage_table1">
         <property name="visible">True</property>
-        <property name="n_rows">12</property>
+        <property name="n_rows">18</property>
         <property name="homogeneous">True</property>
         <child>
           <object class="GtkHBox" id="window_marriage_hbox1">
@@ -1158,6 +1158,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_bride_name">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_bride_name_insert_text"/>
               </object>
@@ -1169,6 +1170,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_groom_name">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_groom_name_insert_text"/>
               </object>
@@ -1290,6 +1292,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_bride_cond">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_bride_cond_insert_text"/>
               </object>
@@ -1301,6 +1304,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_groom_cond">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_groom_cond_insert_text"/>
               </object>
@@ -1331,6 +1335,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_bride_rank">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_bride_rank_insert_text"/>
               </object>
@@ -1342,6 +1347,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_groom_rank">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_groom_rank_insert_text"/>
               </object>
@@ -1372,6 +1378,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_bride_father">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_bride_father_insert_text"/>
               </object>
@@ -1383,6 +1390,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_groom_father">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_groom_father_insert_text"/>
               </object>
@@ -1403,7 +1411,7 @@ copy of the GNU General Public License along with this program.If not
             <child>
               <object class="GtkLabel" id="marriage_label10">
                 <property name="visible">True</property>
-                <property name="label" translatable="yes">Address</property>
+                <property name="label" translatable="yes">Door No and Street</property>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -1413,6 +1421,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_bride_address">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_bride_address_insert_text"/>
               </object>
@@ -1424,6 +1433,7 @@ copy of the GNU General Public License along with this program.If not
               <object class="GtkEntry" id="window_marriage_groom_address">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="max_length">30</property>
                 <property name="invisible_char">&#x25CF;</property>
                 <signal name="insert_text" handler="on_window_marriage_groom_address_insert_text"/>
               </object>
@@ -1435,119 +1445,6 @@ copy of the GNU General Public License along with this program.If not
           <packing>
             <property name="top_attach">7</property>
             <property name="bottom_attach">8</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHBox" id="window_marriage_hbox11">
-            <property name="visible">True</property>
-            <property name="homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="marriage_label11">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Witness Name</property>
-              </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="window_marriage_bride_wit_name">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_marriage_bride_wit_name_insert_text"/>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="window_marriage_groom_wit_name">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_marriage_groom_wit_name_insert_text"/>
-              </object>
-              <packing>
-                <property name="position">2</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="top_attach">8</property>
-            <property name="bottom_attach">9</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHBox" id="window_marriage_hbox12">
-            <property name="visible">True</property>
-            <property name="homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="marriage_label12">
-                <property name="visible">True</property>
-                <property name="label" translatable="yes">Address</property>
-              </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="window_marriage_bride_wit_addr">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_marriage_bride_wit_addr_insert_text"/>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="window_marriage_groom_wit_addr">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_marriage_groom_wit_addr_insert_text"/>
-              </object>
-              <packing>
-                <property name="position">2</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="top_attach">9</property>
-            <property name="bottom_attach">10</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHBox" id="window_marriage_hbox13">
-            <property name="visible">True</property>
-            <property name="homogeneous">True</property>
-            <child>
-              <object class="GtkLabel" id="marriage_label13">
-                <property name="visible">True</property>
-                <property name="xalign">0.2199999988079071</property>
-                <property name="label" translatable="yes">Minister's Name</property>
-              </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkEntry" id="window_marriage_minister_name">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
-                <signal name="insert_text" handler="on_window_marriage_minister_name_insert_text"/>
-              </object>
-              <packing>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="top_attach">10</property>
-            <property name="bottom_attach">11</property>
           </packing>
         </child>
         <child>
@@ -1614,8 +1511,433 @@ copy of the GNU General Public License along with this program.If not
             </child>
           </object>
           <packing>
+            <property name="top_attach">17</property>
+            <property name="bottom_attach">18</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox1">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkHBox" id="window_marriage_hbox11">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="marriage_label11">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Witness Name</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_bride_wit_name">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">30</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_bride_wit_name_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_groom_wit_name">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">30</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_groom_wit_name_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
             <property name="top_attach">11</property>
             <property name="bottom_attach">12</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox2">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkHBox" id="window_marriage_hbox12">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="marriage_label12">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Door No and Street</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_bride_wit_addr">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">48</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_bride_wit_addr_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_groom_wit_addr">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">50</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_groom_wit_addr_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">12</property>
+            <property name="bottom_attach">13</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox3">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkHBox" id="mar_hbox7">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="mar_label1">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Village</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_bride_wit_villi">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">30</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_bride_wit_villi_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_groom_wit_villi">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">30</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_groom_wit_villi_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">13</property>
+            <property name="bottom_attach">14</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox4">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkHBox" id="mar_hbox8">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="mar_label2">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">District</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_bride_wit_dist">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">20</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_bride_wit_dist_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_groom_wit_dist">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">20</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_groom_wit_dist_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">14</property>
+            <property name="bottom_attach">15</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox5">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkHBox" id="mar_hbox9">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="mar_label3">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">PIN</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_bride_wit_pin">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">6</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_bride_wit_pin_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_groom_wit_pin">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">6</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_groom_wit_pin_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">15</property>
+            <property name="bottom_attach">16</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="marriage_hbox10">
+            <property name="visible">True</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="mar_label6">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Village</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_bride_villi">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_villi_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_groom_villi">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_villi_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">8</property>
+            <property name="bottom_attach">9</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox11">
+            <property name="visible">True</property>
+            <property name="spacing">7</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="mar_label5">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">District</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_bride_dist">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">20</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_dist_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_groom_dist">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_dist_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">9</property>
+            <property name="bottom_attach">10</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="mar_hbox12">
+            <property name="visible">True</property>
+            <property name="spacing">2</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <object class="GtkLabel" id="mar_label4">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">PIN</property>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_bride_pin">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">6</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_bride_pin_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkEntry" id="window_marriage_groom_pin">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="max_length">6</property>
+                <property name="invisible_char">&#x25CF;</property>
+                <signal name="insert_text" handler="on_window_marriage_groom_pin_insert_text"/>
+              </object>
+              <packing>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">10</property>
+            <property name="bottom_attach">11</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="marriage_hbox6">
+            <property name="visible">True</property>
+            <child>
+              <object class="GtkHBox" id="window_marriage_hbox13">
+                <property name="visible">True</property>
+                <property name="homogeneous">True</property>
+                <child>
+                  <object class="GtkLabel" id="marriage_label13">
+                    <property name="visible">True</property>
+                    <property name="xalign">0.2199999988079071</property>
+                    <property name="label" translatable="yes">Minister's Name</property>
+                  </object>
+                  <packing>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkEntry" id="window_marriage_minister_name">
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="max_length">30</property>
+                    <property name="invisible_char">&#x25CF;</property>
+                    <signal name="insert_text" handler="on_window_marriage_minister_name_insert_text"/>
+                  </object>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="top_attach">16</property>
+            <property name="bottom_attach">17</property>
           </packing>
         </child>
       </object>
