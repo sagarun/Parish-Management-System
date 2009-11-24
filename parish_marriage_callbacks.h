@@ -12,41 +12,16 @@
 
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>. */
-
+#ifndef PARISH_MARRIAGE_CALLBACKS
+#define PARISH_MARRIAGE_CALLBACKS
 #include "parish_common.h"
 #include "database.h"
 
-typedef struct
-{
-  gchar *marriage_date;
-  gchar *marriage_month;
-  gchar *marriage_year;
-  gchar *bride_name;
-  gchar *groom_name;
-  gchar *bride_dob_date;
-  gchar *bride_dob_month;
-  gchar *bride_dob_year;
-  gchar *groom_dob_date;
-  gchar *groom_dob_month;
-  gchar *groom_dob_year;
-  gchar *bride_cond;
-  gchar *groom_cond;
-  gchar *bride_rank;
-  gchar *groom_rank;
-  gchar *bride_father;
-  gchar *groom_father;
-  gchar *bride_addr;
-  gchar *groom_addr;
-  gchar *bride_wit;
-  gchar *groom_wit;
-  gchar *bride_wit_addr;
-  gchar *groom_wit_addr;
-  gchar *minister;
 
-}marriage_cert;
 
 void on_window_marriage_close_clicked(GtkButton *button,gpointer user_data);
 void on_window_marriage_clear_clicked(GtkButton *button,gpointer user_data);
+void on_window_marriage_add_clicked(GtkButton *button,gpointer user_data);
 
 void clear_marriage_records();
 
@@ -79,3 +54,8 @@ void on_window_marriage_bride_wit_dist_insert_text(GtkEditable *editable,gchar *
 void on_window_marriage_groom_wit_dist_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
 void on_window_marriage_bride_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
 void on_window_marriage_groom_wit_pin_insert_text(GtkEditable *editable,gchar *new_text,gint new_length,gint *position,gpointer user_data);
+
+
+void get_marriage_cert(marriage_cert *cert);
+gboolean is_marriage_cert_valid(marriage_cert cert);
+#endif

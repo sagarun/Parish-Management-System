@@ -195,20 +195,13 @@ void add_text_combobox()
 }
 
 /*Prepates date information to store it in db*/
-void baptism_prepare_date(struct baptism_cert cert,gchar *date_dob,gchar *date_dobap)
+void prepare_date(gchar *date,gchar *month,gchar *year,gchar **date_dob)
 {
-  g_strlcpy(date_dob,cert.dob_date,10);
-  g_print(cert.dob_date);
+  g_strlcpy(date_dob,date,10);
   g_strlcat(date_dob,"/",10);
-  g_strlcat(date_dob,cert.dob_month,10);
+  g_strlcat(date_dob,month,10);
   g_strlcat(date_dob,"/",10);
-  g_strlcat(date_dob,cert.dob_year,10);
-  g_strlcpy(date_dobap,cert.dobap_date,10);
-  g_strlcat(date_dobap,"/",10);
-  g_strlcat(date_dobap,cert.dobap_month,10);
-  g_strlcat(date_dobap,"/",10);
-  g_strlcat(date_dobap,cert.dobap_year,10);
-
+  g_strlcat(date_dob,year,10);
 }
 
 /* Creates displayable search results*/
@@ -246,7 +239,7 @@ void prepare_results(GString *result,int cols)
 }
 
 
-/* Creates printable column name*/
+/* Creates printable column name for search results window*/
 void get_column_name(int i,gchar *col_name)
 {
   

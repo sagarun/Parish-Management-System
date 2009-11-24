@@ -16,9 +16,12 @@
 #ifndef DATABASE
 #define DATABASE
 #include "parish_common.h"
+#include "parish_marriage_callbacks.h"
 /*Function related to sqlite database intefacing*/
 int sqlite_get_handle();
 int sqlite_store_baptism_cert(struct baptism_cert cert);
 void  prepare_baptism_cert_query(GString *query,struct baptism_cert cert);
 void do_search(gchar *querystring,gchar *searchby,gchar *table);
+int sqlite_store_marriage_cert(marriage_cert cert);
+void prepare_marriage_cert_query(GString *query,marriage_cert cert);
 #endif

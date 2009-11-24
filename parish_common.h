@@ -48,10 +48,52 @@ struct baptism_cert
 	gchar *remarks;
 };
 
+
+typedef struct
+{
+  gchar *marriage_date;
+  gchar *marriage_month;
+  gchar *marriage_year;
+  gchar *bride_name;
+  gchar *groom_name;
+  gchar *bride_dob_date;
+  gchar *bride_dob_month;
+  gchar *bride_dob_year;
+  gchar *groom_dob_date;
+  gchar *groom_dob_month;
+  gchar *groom_dob_year;
+  gchar *bride_cond;
+  gchar *groom_cond;
+  gchar *bride_rank;
+  gchar *groom_rank;
+  gchar *bride_father;
+  gchar *groom_father;
+  gchar *bride_addr;
+  gchar *bride_villi;
+  gchar *bride_dist;
+  gchar *bride_pin;
+  gchar *groom_addr;
+  gchar *groom_villi;
+  gchar *groom_dist;
+  gchar *groom_pin;
+  gchar *bride_wit_name;
+  gchar *groom_wit_name;
+  gchar *bride_wit_addr;
+  gchar *bride_wit_villi;
+  gchar *bride_wit_dist;
+  gchar *bride_wit_pin;
+  gchar *groom_wit_addr;
+  gchar *groom_wit_villi;
+  gchar *groom_wit_dist;
+  gchar *groom_wit_pin;
+  gchar *minister;
+
+}marriage_cert;
+
 void quick_message(gchar *);
 gboolean is_form_valid(struct baptism_cert *cert);
 void add_text_combobox();
-void baptism_prepare_date(struct baptism_cert cert,gchar *date_dob,gchar *date_dobap);
+void prepare_date(gchar *date,gchar *month,gchar *year,gchar **date_dob);
 void prepare_results(GString *result,int cols);
 void get_column_name(int i,gchar *col_name);
 
