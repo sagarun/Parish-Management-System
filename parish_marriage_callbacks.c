@@ -52,23 +52,23 @@ void clear_marriage_records()
 	gtk_entry_set_text(GTK_ENTRY (entry),"");
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_name");
 	gtk_entry_set_text(GTK_ENTRY (entry),"");
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_date");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_month");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_year");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_dob_date");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_dob_month");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_dob_year");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_dob_date");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_dob_month");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_dob_year");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_cond");
 	gtk_entry_set_text(GTK_ENTRY(entry),"");
@@ -415,41 +415,41 @@ void get_marriage_cert(marriage_cert *cert)
     cert->marriage_year = NULL;
 
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_name");
-  cert->bride_name = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_name = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_name");
-  cert->groom_name = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_name = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_cond");
-  cert->bride_cond = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_cond = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_cond");
-  cert->groom_cond = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_cond = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_rank");
-  cert->bride_rank = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_rank = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_rank");
-  cert->groom_rank = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_rank = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_father");
-  cert->bride_father = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_father = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_father");
-  cert->groom_father = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_father = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_address");
-  cert->bride_addr = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_addr = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_address");
-  cert->groom_addr = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_addr = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_villi");
-  cert->bride_villi = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_villi = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_villi");
-  cert->groom_villi = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_villi = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_dist");
-  cert->bride_dist = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_dist = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_dist");
-  cert->groom_dist = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_dist = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_pin");
-  cert->bride_pin = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_pin = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_pin");
-  cert->groom_pin = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_pin = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_date");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->bride_dob_date  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->bride_dob_date  =(gchar *) gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
@@ -458,7 +458,7 @@ void get_marriage_cert(marriage_cert *cert)
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_month");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->bride_dob_month  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->bride_dob_month  = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
@@ -467,7 +467,7 @@ void get_marriage_cert(marriage_cert *cert)
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_bride_dob_year");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->bride_dob_year  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->bride_dob_year  = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
@@ -475,7 +475,7 @@ void get_marriage_cert(marriage_cert *cert)
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_date");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->groom_dob_date  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->groom_dob_date  = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
@@ -484,7 +484,7 @@ void get_marriage_cert(marriage_cert *cert)
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_month");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->groom_dob_month  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->groom_dob_month  = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
@@ -493,34 +493,34 @@ void get_marriage_cert(marriage_cert *cert)
   cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_marriage_groom_dob_year");
   if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->groom_dob_year  = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->groom_dob_year  = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
   else
     cert->groom_dob_year = NULL;
   
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_addr");
-  cert->bride_wit_addr = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_wit_addr = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_addr");
-  cert->groom_wit_addr = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_wit_addr = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_villi");
-  cert->bride_wit_villi = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_wit_villi = (gchar *) gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_villi");
-  cert->groom_wit_villi = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_wit_villi = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_dist");
-  cert->bride_wit_dist = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_wit_dist = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_dist");
-  cert->groom_wit_dist = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_wit_dist = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_pin");
-  cert->bride_wit_pin = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_wit_pin = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_pin");
-  cert->groom_wit_pin = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_wit_pin = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_bride_wit_name");
-  cert->bride_wit_name = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->bride_wit_name = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_groom_wit_name");
-  cert->groom_wit_name = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->groom_wit_name = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
   entry = (GtkWidget *)gtk_builder_get_object(build,"window_marriage_minister_name");
-  cert->minister = gtk_entry_get_text(GTK_ENTRY(entry));
+  cert->minister = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 
   
 }

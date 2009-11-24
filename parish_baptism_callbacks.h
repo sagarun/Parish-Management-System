@@ -19,6 +19,7 @@
 void on_window_baptism_quit_clicked(GtkButton *button,gpointer user_data);
 void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data);
 void on_window_baptism_add_clicked(GtkButton *button,gpointer user_data);
+
 void on_window_baptism_remarks_insert_text(GtkEditable  *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data);
 void on_window_baptism_kept_at_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data);
 void on_window_baptism_place_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data);

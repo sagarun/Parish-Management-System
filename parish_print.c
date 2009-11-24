@@ -47,7 +47,7 @@ void print_buffer (gchar *text)
 
 /* Begin the printing by retrieving the contents of the selected files and
  * spliting it into single lines of text. */
-static void
+ void
 begin_print (GtkPrintOperation *operation, 
              GtkPrintContext *context,
              PrintData *w)
@@ -73,7 +73,7 @@ begin_print (GtkPrintOperation *operation,
 
 /* Draw the page, which includes a header with the file name and page number along
  * with one page of text with a font of "Monospace 10". */
-static void
+void
 draw_page (GtkPrintOperation *operation,
            GtkPrintContext *context,
            gint page_nr,
@@ -129,7 +129,7 @@ draw_page (GtkPrintOperation *operation,
 }
 
 /* Clean up after the printing operation since it is done. */
-static void
+void
 end_print (GtkPrintOperation *operation, 
            GtkPrintContext *context,
            PrintData *w)

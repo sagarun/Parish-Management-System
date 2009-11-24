@@ -25,7 +25,7 @@ void on_search_main_cancel_button_clicked(GtkButton *button,gpointer user_data)
 
 void on_search_main_query_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
-  if(!g_regex_match_simple("[a-zA-Z0-9 \s / .]+",new_text,0,0))
+  if(!g_regex_match_simple("[a-zA-Z0-9 /.]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }

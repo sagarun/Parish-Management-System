@@ -49,8 +49,8 @@ void  prepare_baptism_cert_query(GString *query,struct baptism_cert cert)
 {
   gchar date_dob[10];
   gchar date_dobap[10];
-  prepare_date(cert.dob_date,cert.dob_month,cert.dob_year,&date_dob);
-  prepare_date(cert.dobap_date,cert.dobap_month,cert.dobap_year,&date_dobap);
+  prepare_date(cert.dob_date,cert.dob_month,cert.dob_year,date_dob);
+  prepare_date(cert.dobap_date,cert.dobap_month,cert.dobap_year,date_dobap);
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",cert.kept_at);
   g_string_append_printf(query,"%s","'");
@@ -163,9 +163,9 @@ void prepare_marriage_cert_query(GString *query,marriage_cert cert)
   gchar date_marriage[10];
   gchar bride_dob[10];
   gchar groom_dob[10];
-  prepare_date(cert.marriage_date,cert.marriage_month,cert.marriage_year,&date_marriage);
-  prepare_date(cert.bride_dob_date,cert.bride_dob_month,cert.bride_dob_year,&bride_dob);
-  prepare_date(cert.groom_dob_date,cert.groom_dob_month,cert.groom_dob_year,&groom_dob);
+  prepare_date(cert.marriage_date,cert.marriage_month,cert.marriage_year,date_marriage);
+  prepare_date(cert.bride_dob_date,cert.bride_dob_month,cert.bride_dob_year,bride_dob);
+  prepare_date(cert.groom_dob_date,cert.groom_dob_month,cert.groom_dob_year,groom_dob);
   g_string_append_printf(query,"%s","'");
   g_string_append_printf(query,"%s",date_marriage);
   g_string_append_printf(query,"%s","'");

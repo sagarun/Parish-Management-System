@@ -16,6 +16,6 @@ typedef struct
 GtkPrintSettings *settings;
 
 void print_buffer(gchar *);
-static void begin_print (GtkPrintOperation*, GtkPrintContext*, PrintData*);
-static void draw_page (GtkPrintOperation*, GtkPrintContext*, gint, PrintData*);
-static void end_print (GtkPrintOperation*, GtkPrintContext*, PrintData*);
+void begin_print (GtkPrintOperation*, GtkPrintContext*, PrintData*);
+void draw_page (GtkPrintOperation*, GtkPrintContext*, gint, PrintData*);
+void end_print (GtkPrintOperation*, GtkPrintContext*, PrintData*);

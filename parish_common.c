@@ -102,8 +102,8 @@ void quick_message (gchar *message)
    	GtkWidget *dialog, *label, *content_area,*parent;
 	parent =(GtkWidget *)gtk_builder_get_object(build,"window");
    /* Create the widgets */
-  	 dialog = gtk_dialog_new_with_buttons ("Message",
-					 parent,
+	dialog = (GtkWidget *)gtk_dialog_new_with_buttons ("Message",
+					 (GtkWindow *)parent,
                                          GTK_DIALOG_MODAL,
                                          GTK_STOCK_OK,
                                          GTK_RESPONSE_OK,
@@ -195,7 +195,7 @@ void add_text_combobox()
 }
 
 /*Prepates date information to store it in db*/
-void prepare_date(gchar *date,gchar *month,gchar *year,gchar **date_dob)
+void prepare_date(gchar *date,gchar *month,gchar *year,gchar *date_dob)
 {
   g_strlcpy(date_dob,date,10);
   g_strlcat(date_dob,"/",10);

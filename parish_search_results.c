@@ -12,7 +12,7 @@ void on_search_results_close_clicked(GtkButton *button,gpointer user_data)
 void on_search_results_next_clicked(GtkButton *button,gpointer user_data)
 {
   int cols;
-  GtkWidget *widget,*view;
+  GtkWidget *view;
   GtkTextBuffer *textbuf;
   GString *result;
   result = g_string_new("");

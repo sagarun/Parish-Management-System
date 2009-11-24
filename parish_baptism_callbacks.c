@@ -26,10 +26,6 @@ void on_window_baptism_quit_clicked(GtkButton *button,gpointer user_data)
 	gtk_widget_hide(widget);
 }
 
-void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data)
-{
-	clear_baptism_records();
-}
 void clear_baptism_records()
 {
   	GtkWidget *entry;
@@ -38,21 +34,21 @@ void clear_baptism_records()
 	gtk_entry_set_text(GTK_ENTRY (entry),"");
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_place");
 	gtk_entry_set_text(GTK_ENTRY (entry),"");
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_date");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_month");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_year");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_name");
 	gtk_entry_set_text(GTK_ENTRY(entry),"");
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_date");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_month");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_year");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_sex");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sex");
 	gtk_combo_box_set_active((GtkComboBox *)(cbox),-1);
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_mom");
 	gtk_entry_set_text(GTK_ENTRY(entry),"");
@@ -73,93 +69,98 @@ void clear_baptism_records()
 		
 }
 
+void on_window_baptism_clear_clicked(GtkButton *button,gpointer user_data)
+{
+	clear_baptism_records();
+}
+
+
 void get_baptism_cert(struct baptism_cert *cert)
 {
 	GtkWidget *entry;
 	GtkWidget *cbox;
-	gchar dob[10];
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_kept_at");
-	cert->kept_at = gtk_entry_get_text(GTK_ENTRY (entry));
+	cert->kept_at = (gchar *)gtk_entry_get_text(GTK_ENTRY (entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_place");
-	cert->place = gtk_entry_get_text(GTK_ENTRY (entry));
+	cert->place = (gchar *)gtk_entry_get_text(GTK_ENTRY (entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_name");
-	cert->name = gtk_entry_get_text(GTK_ENTRY(entry));
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_date");
+	cert->name = (gchar *) gtk_entry_get_text(GTK_ENTRY(entry));
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_date");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dob_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->dob_date = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
 	else
 		cert->dob_date =NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_month");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dob_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->dob_month =(gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
 	else
 		cert->dob_month=NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dob_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dob_year");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dob_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));	
+	  cert->dob_year = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));	
 
 	}
 	else
 		cert->dob_year=NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_date");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_date");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dobap_date = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->dobap_date = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
 	else
 		cert->dobap_date = NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_month");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_month");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dobap_month = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->dobap_month = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 
 	}
 	else
 		cert->dobap_month = NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_dobap_year");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dobap_year");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->dobap_year = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->dobap_year = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 	}
 	else
 		cert->dobap_year = NULL;
 
-	cbox = (GtkComboBox *)gtk_builder_get_object(build,"window_baptism_sex");
+	cbox = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sex");
 	if(gtk_combo_box_get_active((GtkComboBox *)(cbox))!=-1)
 	{
-		cert->sex = gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
+	  cert->sex = (gchar *)gtk_combo_box_get_active_text((GtkComboBox *)(cbox));
 	}
 	else
 		cert->sex = NULL;
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_mom");
-	cert->mom = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->mom =(gchar *) gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_dad");
-	cert->dad = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->dad =(gchar *) gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_resi");
-	cert->resi = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->resi = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_caste");
-	cert->caste  = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->caste  = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sp1");
-	cert->spon1 = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->spon1 =(gchar *) gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_sp2");
-	cert->spon2 = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->spon2 = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_priest");
-        cert->priest = gtk_entry_get_text(GTK_ENTRY(entry));
+        cert->priest = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 	entry = (GtkWidget *)gtk_builder_get_object(build,"window_baptism_remarks");
-	cert->remarks = gtk_entry_get_text(GTK_ENTRY(entry));
+	cert->remarks = (gchar *)gtk_entry_get_text(GTK_ENTRY(entry));
 
 }
 
@@ -185,7 +186,7 @@ void on_window_baptism_add_clicked(GtkButton *button,gpointer user_data)
 
 void on_window_baptism_remarks_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
-  if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+  if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -218,7 +219,7 @@ void on_window_baptism_place_insert_text(GtkEditable *editable,gchar *new_text,g
 void on_window_baptism_name_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -229,7 +230,7 @@ void on_window_baptism_name_insert_text(GtkEditable *editable,gchar *new_text,gi
 void on_window_baptism_mom_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -240,7 +241,7 @@ void on_window_baptism_mom_insert_text(GtkEditable *editable,gchar *new_text,gin
 void on_window_baptism_dad_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -251,7 +252,7 @@ void on_window_baptism_dad_insert_text(GtkEditable *editable,gchar *new_text,gin
 void on_window_baptism_priest_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -262,7 +263,7 @@ void on_window_baptism_priest_insert_text(GtkEditable *editable,gchar *new_text,
 void on_window_baptism_sp1_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -273,7 +274,7 @@ void on_window_baptism_sp1_insert_text(GtkEditable *editable,gchar *new_text,gin
 void on_window_baptism_sp2_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s .]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z .]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -284,7 +285,7 @@ void on_window_baptism_sp2_insert_text(GtkEditable *editable,gchar *new_text,gin
 void on_window_baptism_caste_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[a-zA-Z \s]+",new_text,0,0))
+   if(!g_regex_match_simple("[a-zA-Z ]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
@@ -295,7 +296,7 @@ void on_window_baptism_caste_insert_text(GtkEditable *editable,gchar *new_text,g
 void on_window_baptism_resi_insert_text(GtkEditable *editable,gchar *new_text,gint new_text_length,gint *position,gpointer user_data)
 {
 
-   if(!g_regex_match_simple("[0-9a-zA-Z \s . ,]+",new_text,0,0))
+   if(!g_regex_match_simple("[0-9a-zA-Z .,]+",new_text,0,0))
     {
       g_signal_stop_emission_by_name (editable,"insert-text");
     }
