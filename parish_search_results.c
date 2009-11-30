@@ -17,7 +17,7 @@ void on_search_results_next_clicked(GtkButton *button,gpointer user_data)
   GString *result;
   result = g_string_new("");
   cols = sqlite3_column_count(stmt);
-  prepare_results(result,cols);
+  prepare_results(result,cols,1);
   view = (GtkWidget *)gtk_builder_get_object(build,"search_results_text");
   textbuf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
   gtk_text_buffer_set_text(textbuf,result->str,-1);

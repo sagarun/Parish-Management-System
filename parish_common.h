@@ -94,7 +94,8 @@ void quick_message(gchar *);
 gboolean is_form_valid(struct baptism_cert *cert);
 void add_text_combobox();
 void prepare_date(gchar *date,gchar *month,gchar *year,gchar *date_dob);
-void prepare_results(GString *result,int cols);
-void get_column_name(int i,gchar *col_name);
+void prepare_results(GString *result,int cols,int radio);
+void get_column_name(int i,GString *col_name,int table);
+void append_line(GString *result);
 
 #endif

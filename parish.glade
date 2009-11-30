@@ -644,7 +644,7 @@
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="window_baptism_add">
-                <property name="label" translatable="yes">gtk-add</property>
+                <property name="label">gtk-add</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -659,7 +659,7 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_clear">
-                <property name="label" translatable="yes">gtk-clear</property>
+                <property name="label">gtk-clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -674,7 +674,7 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_print">
-                <property name="label" translatable="yes">gtk-print</property>
+                <property name="label">gtk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -688,7 +688,7 @@
             </child>
             <child>
               <object class="GtkButton" id="window_baptism_quit">
-                <property name="label" translatable="yes">gtk-close</property>
+                <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -923,7 +923,7 @@
             <property name="visible">True</property>
             <child>
               <object class="GtkButton" id="search_results_print">
-                <property name="label" translatable="yes">gtk-print</property>
+                <property name="label">gtk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -938,7 +938,7 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_prev">
-                <property name="label" translatable="yes">gtk-go-back</property>
+                <property name="label">gtk-go-back</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -952,7 +952,7 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_next">
-                <property name="label" translatable="yes">gtk-go-forward</property>
+                <property name="label">gtk-go-forward</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -967,7 +967,7 @@
             </child>
             <child>
               <object class="GtkButton" id="search_results_close">
-                <property name="label" translatable="yes">gtk-close</property>
+                <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -996,13 +996,13 @@
     </columns>
     <data>
       <row>
-        <col id="0" translatable="yes">Date of Marriage</col>
-      </row>
-      <row>
         <col id="0" translatable="yes">Name of the bride</col>
       </row>
       <row>
-        <col id="0" translatable="yes">Name of the groom</col>
+        <col id="0" translatable="yes">Name of the Groom</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">Date of marriage</col>
       </row>
     </data>
   </object>
@@ -1458,7 +1458,7 @@ this program.If not,see &lt;http://www.gnu.org/licenses/&gt;.</property>
             <property name="homogeneous">True</property>
             <child>
               <object class="GtkButton" id="window_marriage_add">
-                <property name="label" translatable="yes">gtk-add</property>
+                <property name="label">gtk-add</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1473,7 +1473,7 @@ this program.If not,see &lt;http://www.gnu.org/licenses/&gt;.</property>
             </child>
             <child>
               <object class="GtkButton" id="window_marriage_print">
-                <property name="label" translatable="yes">gtk-print</property>
+                <property name="label">gtk-print</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1487,7 +1487,7 @@ this program.If not,see &lt;http://www.gnu.org/licenses/&gt;.</property>
             </child>
             <child>
               <object class="GtkButton" id="window_marriage_clear">
-                <property name="label" translatable="yes">gtk-clear</property>
+                <property name="label">gtk-clear</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
@@ -1502,7 +1502,7 @@ this program.If not,see &lt;http://www.gnu.org/licenses/&gt;.</property>
             </child>
             <child>
               <object class="GtkButton" id="window_marriage_close">
-                <property name="label" translatable="yes">gtk-close</property>
+                <property name="label">gtk-close</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>

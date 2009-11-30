@@ -37,7 +37,7 @@ void on_search_main_search_button_clicked(GtkButton *button,gpointer user_data)
   GString *result;
   GtkTextBuffer *textbuf;
   gchar querystring[30];
-  gchar *searchby[] = {"name","dad","mom","date_birth"};
+  gchar *searchby[2][4] = {{"name","dad","mom","date_birth"},{"bride_name","groom_name","date_marriage",""}};
   gchar *table[] = {"baptism_cert","marriage_cert"};
   int radio=0;
   int cbox_index=-1;
@@ -47,12 +47,11 @@ void on_search_main_search_button_clicked(GtkButton *button,gpointer user_data)
     {
       return;
     } 
-  //Fixme: For now assuming every query goes on baptism_cert table
-  do_search(querystring,searchby[cbox_index],table[radio]);
+  do_search(querystring,searchby[radio][cbox_index],table[radio]);
   widget = (GtkWidget *) gtk_builder_get_object(build,"search_main");
   gtk_widget_hide(widget);
   cols = sqlite3_column_count(stmt);
-  prepare_results(result,cols);
+  prepare_results(result,cols,radio);
   view = (GtkWidget *)gtk_builder_get_object(build,"search_results_text");
   textbuf = gtk_text_view_get_buffer(GTK_TEXT_VIEW(view));
   gtk_text_buffer_set_text(textbuf,result->str,-1);
@@ -66,6 +65,12 @@ gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index)
 {
   GtkWidget *widget;
   GtkComboBox *cbox;
+  GtkToggleButton *tb;
+  tb =(GtkToggleButton *)gtk_builder_get_object(build,"search_main_radio2");
+  if(gtk_toggle_button_get_active(tb))
+    {
+      *index = 1;
+    }
   widget = (GtkWidget *) gtk_builder_get_object(build,"search_main_query");
   g_strlcpy(querystring,gtk_entry_get_text(GTK_ENTRY(widget)),30);
   if(g_strcmp0(querystring,"") == 0)
@@ -81,7 +86,7 @@ gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index)
       quick_message("please select one filed to search with");
       return FALSE;
     }
-  if(*cbox_index == 3)
+  if(*cbox_index == 3 || (*cbox_index==2 && *index==1))
     {
       /*The user input must be a date so validate it*/
       
@@ -92,10 +97,8 @@ gboolean is_valid_search(gchar *querystring,int *cbox_index,int *index)
 	}	
     }
 
-  //Fixme: Need to find a way to get radio buttons
-  *index = 0;
+
   return TRUE;
-  
   
 
 }

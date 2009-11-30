@@ -205,28 +205,29 @@ void prepare_date(gchar *date,gchar *month,gchar *year,gchar *date_dob)
 }
 
 /* Creates displayable search results*/
-void prepare_results(GString *result,int cols)
+void prepare_results(GString *result,int cols,int radio)
 {
   int retval,i;
   retval = sqlite3_step(stmt);
-  gchar col_name[25];
-  gchar col_name_db[25];
+  //gchar col_name[25];
+  //gchar col_name_db[25];
+  GString *tmp;
+  tmp =g_string_new("");
   if(retval == SQLITE_ROW)
     {
       //g_string_append_printf(result,"%s","*******************************************");
       //g_string_append_printf(result,"%s\n","*******************************************");
 
       /* i starts from 1 as uid is in first column of the table*/
+      g_print("%d",cols);
       for(i=1;i<cols;i++)
 	{
-	  g_strlcpy(col_name_db,sqlite3_column_name(stmt,i),25);
-	  g_string_append_printf(result,"\n%s","------------------------------------------");
-	  g_string_append_printf(result,"%s","------------------------------------------");
-	  get_column_name(i,col_name);  
-	  g_string_append_printf(result,"\n\t\t\t%s",col_name);
-	  g_string_append_printf(result,"\t\t\t%s","");
-	  g_string_append_printf(result,"%s",(gchar *)sqlite3_column_text(stmt,i));
-
+	  // g_strlcpy(col_name_db,sqlite3_column_name(stmt,i),25);
+	  get_column_name(i,tmp,radio);  
+	  g_string_append_printf(result,"%s",tmp->str);
+	  g_string_append_printf(result,"%-30s",(gchar *)sqlite3_column_text(stmt,i));
+	  g_string_printf(tmp,"%s","");
+	  
 	}
       //g_string_append_printf(result,"\n%s","*******************************************");
       //g_string_append_printf(result,"%s\n","*******************************************");
@@ -236,56 +237,184 @@ void prepare_results(GString *result,int cols)
     {
       g_string_append_printf(result,"%s","End of search");
     }
+  g_string_free(tmp,TRUE);
 }
 
 
 /* Creates printable column name for search results window*/
-void get_column_name(int i,gchar *col_name)
+void get_column_name(int i,GString *col_name,int table)
 {
-  
-  switch(i)
-    {	    
-     case 1:  
-              g_strlcpy(col_name,"Kept At      ",25);
-              break;
-     case 2:
-	      g_strlcpy(col_name,"Place        ",25);
-	      break;
-     case 3:
-	      g_strlcpy(col_name,"Date         ",25);
-	      break;
-     case 4: 
-	      g_strlcpy(col_name,"Name         ",25);
-	      break;
-     case 5:
-	      g_strlcpy(col_name,"Date of birth",25);
-	      break;
-     case 6:
-	      g_strlcpy(col_name,"Sex          ",25);
-	      break;
-     case 7:
-	      g_strlcpy(col_name,"Mother's Name",25);
-	      break;
-     case 8:
-	      g_strlcpy(col_name,"Father's Name",25);
-	      break;
-     case 9:
-	      g_strlcpy(col_name,"Residence    ",25);
-	      break;
-     case 10:
-	      g_strlcpy(col_name,"Caste        ",25);
-	      break;
-     case 11:
-	      g_strlcpy(col_name,"Sponsor 1    ",25);
-	      break;
-     case 12:
-	      g_strlcpy(col_name,"Sponsor 2    ",25);
-	      break;
-     case 13:
-	      g_strlcpy(col_name,"Priest       ",25);
-	      break;
-     case 14:
-	      g_strlcpy(col_name,"Remarks      ",25);
-	      break;
+  if(table==0)
+    {
+      switch(i)
+	{	    
+	case 1:  
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Kept At      ");
+	  break;
+	case 2:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Place        ");
+	  break;
+	case 3:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Date         ");
+	  break;
+	case 4: 
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Name         ");
+	  break;
+	case 5:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Date of birth");
+	  break;
+	case 6:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Sex          ");
+	  break;
+	case 7:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Mother's Name");
+	  break;
+	case 8:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Father's Name");
+	  break;
+	case 9:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Residence    ");
+	  break;
+	case 10:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Caste        ");
+	  break;
+	case 11:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Sponsor 1    ");
+	  break;
+	case 12:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Sponsor 2    ");
+	  break;
+	case 13:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Priest       ");
+	  break;
+	case 14:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t\t\t%s\t\t\t","Remarks      ");
+	  break;
+	}
     }
+  else if(table==1)
+    {
+      switch(i)
+	{
+	case 1:
+	   append_line(col_name);
+	   g_string_append_printf(col_name,"\n\t%s\t","Date of Marriage   ");
+	   break;
+	case 2:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%-18s\t%-28s\t%s","Parties","Groom","Bride");
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Name               ");
+	  break;
+	case 3:
+	  break;
+	case 4:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Date of birth      ");
+	  break;
+	case 5:
+	  break;
+	case 6:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","condition          ");
+	  break;
+	case 7:
+	  break;
+	case 8:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Rank of profession ");
+	  break;
+	case 9:
+	  break;
+	case 10:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Father name's      ");
+	  break;
+	case 11:
+	  break;
+	case 12:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Door no and street");
+	  break;
+	case 13:
+	  break;
+	case 14:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Village           ");
+	  break;
+	case 15:
+	  break;
+	case 16:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","District          ");
+	  break;
+	case 17:
+	  break;
+	case 18:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","PIN               ");
+	  break;
+	case 19:
+	  break;
+	case 20:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Witness name      ");
+	  break;
+	case 21:
+	  break;
+	case 22:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Door no and street");
+	  break;
+	case 23:
+	  break;
+	case 24:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","village           ");
+	  break;
+	case 25:
+	  break;
+	case 26:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","District          ");
+	  break;
+	case 27:
+	  break;
+	case 28:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","PIN              ");
+	  break;
+	case 29:
+	  break;
+	case 30:
+	  append_line(col_name);
+	  g_string_append_printf(col_name,"\n\t%s\t","Minister's Name  ");
+	  break;	  
+	}
+      
+    }
+
+}
+
+void append_line(GString *result)
+{
+
+     g_string_append_printf(result,"\n%s","------------------------------------------");
+     g_string_append_printf(result,"%s","-------------------------------------------------------------------------");
+
+
 }
